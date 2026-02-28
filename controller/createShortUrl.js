@@ -17,7 +17,7 @@ const createShortUrl = async (req, res) => {
     res.status(201).json({
       Message: "ShortUrl Created",
       originalUrl,
-      shortCode
+      shortUrl: `${req.protocol}://${req.get("host")}/${shortCode}`,
     });
   } catch (er) {
     res.status(500).json({
